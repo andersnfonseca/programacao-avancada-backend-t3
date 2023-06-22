@@ -17,7 +17,7 @@ let x = 10
 if(true){
     // escopo local
     let x = 20
-    console.log(x)
+    console.log(this.x)
 }
 // é incorreto utilizar var depois do EC6
 
@@ -63,7 +63,7 @@ console.log(typeof linguagens[1])
 // são usados quando a necessidade é de representar alguma entidade, como usuário, pessoa, produto
 // possuem notação específica, similar à do JSON
 const user = { 
-    username:'vrc', 
+    username:['vrc','outro nome'], 
     password:'123', 
     name:'Victor',
     age:31
@@ -112,6 +112,12 @@ console.log(chars)
 
 // Desafio: desenvolva uma calculadora para as 4 operações básicas usando const com os dados vindo de um formulário.
 
+function calculator(){
+    const formData = new FormData(document.querySelector('form'))
+    const n1 = parseInt(formData.get('n1'))
+    const n2 = parseInt(formData.get('n2'))
+    console.log(n1+n2)
+}
 
 
 
@@ -119,7 +125,7 @@ console.log(chars)
 // objetos literais são utilizados para representar endidades como pessoas, produtos, usuários...
 
 const product = {
-    productName: 'Camisa',
+    productName: 'Camiseta',
     price: 29.99,
     inStock: true,
     size: ['p', 'm', 'g'],
@@ -136,7 +142,7 @@ console.log(product['main color'])
 
 // desestruturando o objeto product para duas variáveis
 // os nomes precisam ser idênticos aos das propriedades do objeto
-let { productName, price } = product
+let { size, price } = product
 console.log(price)
 price = 30.49
 console.log(price)
@@ -145,7 +151,7 @@ console.log(product.price)
 
 const vector = [3,7,2,45,99]
 // desestruturando um vetor
-let [ v1, v2, ...otherVector] = vector
+let [ v1, v2, ...otherVector ] = vector
 console.log(otherVector)
 
 
@@ -168,12 +174,32 @@ const dogObject = JSON.parse(dogJson)
 console.log(dogObject)
 
 // caso haja algum erro na sintaxe, não pode ser considerado um JSON válido
-//const jsonErrado = '{"primeiro":"dado1""segundo":222,"terceiro":"dado3}'
-//const jsonErradoObject = JSON.parse(jsonErrado)
+// const jsonErrado = '{'primeiro':'dado1','segundo':222,'terceiro':'dado3'}'
+// const jsonErradoObject = JSON.parse(jsonErrado)
 
 // Desafio 1: Armazene 5 dados numéricos em um vetor. Em seguida, copie para um objeto com as propriedades n1, n2, n3, n4 e n5. Utilize destructuring para copiar os valores para 5 variáveis. Construa um objeto JSON com os valores das variáveis.
 
+const vetor = [5,7,3,9,10]
+const objetoVetor = {
+    n1:vetor[0],
+    n2:vetor[1],
+    n3:vetor[2],
+    n4:vetor[3],
+    n5:vetor[4]
+}
+const { n1, n2, n3, n4, n5 } = objetoVetor 
+console.log(JSON.stringify({n1,n2,n3,n4,n5}))
+
 // Desafio 2: Desenvolva uma calculadora que armazene em um objeto JSON o resultado das 4 operações básicas. Em outras palavras: crie um objeto calculadora, inicialize cada uma das operações da calculadora (que serão propriedades do objeto) com o resultado do processamento matemático vindo de duas variáveis e converta para um objeto JSON.
+
+const variavel1 = 10, variavel2 = 15
+const objetoCalculadora = {
+    sum: variavel1+variavel2,
+    sub: variavel1-variavel2,
+    mult: variavel1*variavel2,
+    div: variavel1/variavel2
+}
+console.log(JSON.stringify(objetoCalculadora))
 
 
 
@@ -211,18 +237,18 @@ for(let contador = 0; contador < outraLista.length; contador++)
     console.log(`O elemento da
 vez é ${outraLista[contador]}.`) //template literais, ou template strings: conteúdo entre crases; a quebra de linha no editor de cógidos gera quebra de linha no navegador.
 
+// Desafio relâmpago: escreva o que aparece no log abaixo como template literals.
 const var1 = 5
 const var2 = 10
-const outLiteral = `Quinze é ${(var1+var2)}
-e não ${(2*var1+var2)}.`
-console.log(outLiteral)
+const sumLiteral = 'Quinze é ${(var1+var2)},\n e não ${(2*var1+var2)}.'
+console.log(sumLiteral)
 
 
 
 // métodos de arrays
 // os métodos de arrays esperam funções anônimas como argumentos para responder aos parâmetros
 
-const names = ['Victor','Paulo','Elias','Fabiana']
+const names = ['Victor','Alexandre','Mariana','Paulo']
 
 // forEach percorre um vetor]
 // os métodos para vetores precisam de funções anônimas para auxiliarem na resolução das suas funcionalidades
@@ -285,8 +311,7 @@ function out(){
 }
 */
 
-const testArrow = () => ((x=7), ()=>(x+5))  ()
-console.log(testArrow())
+
 
 // reduzindo o formato de escrita; quando tempos apenas uma propriedade de um objeto sendo utilizada na função anônima, podemos escrever o parâmetro como object literal especificando a propriedade do objeto que será trabalhada e utilizá-la sem que seja necessário escrever o nome do objeto
 const namesLength = names.map( ({length}) => length )
