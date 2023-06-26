@@ -240,7 +240,8 @@ vez é ${outraLista[contador]}.`) //template literais, ou template strings: cont
 // Desafio relâmpago: escreva o que aparece no log abaixo como template literals.
 const var1 = 5
 const var2 = 10
-const sumLiteral = 'Quinze é ${(var1+var2)},\n e não ${(2*var1+var2)}.'
+const sumLiteral = `Quinze é ${(var1+var2)}, 
+e não ${(2*var1+var2)}.`
 console.log(sumLiteral)
 
 
@@ -310,6 +311,7 @@ function out(){
     return sumXand5()
 }
 */
+
 
 
 
@@ -401,7 +403,7 @@ console.log(document.getElementById('titulo'))
 
 // seleciona vários elementos pelo nome da classe e cria um array
 const texts = document.querySelectorAll('.text')
-console.log(texts)
+console.log(typeof(texts))
 
 texts.forEach((data) => console.log(data))
 
@@ -409,7 +411,7 @@ texts.forEach((data) => console.log(data))
 texts[0].textContent = 'Estou alterando o primeiro parágrafo.'
 
 // insere conteúdo (string que pode descrever um HTML) em um elemento
-texts[0].innerHTML = '<span>Testando uma alteração...</span>'
+// texts[0].innerHTML = '<span>Testando uma alteração...</span>'
 
 // altera propriedades do css inline do elemento
 texts[1].style.backgroundColor = 'red'
