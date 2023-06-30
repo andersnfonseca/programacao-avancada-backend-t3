@@ -10,8 +10,6 @@ setInterval(() => {
     const freeMemory = parseInt(freemem()/1024/1024)
     const usageMemory = 100 - parseInt((freeMemory / totalMemory) * 100)
 
-// console.log(usageMemory)
-
 const stats = { 
     totalMemory: `${totalMemory}MB`,
     freeMemory: `${freeMemory}MB`,
@@ -21,7 +19,6 @@ const stats = {
     console.clear()
     console.log('+++++ MEMORY STATS +++++')
     console.table(stats)
-
     log(`${JSON.stringify(stats)}\n`)
 
 }, 1000);

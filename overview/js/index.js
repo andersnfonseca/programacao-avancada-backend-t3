@@ -201,8 +201,6 @@ const objetoCalculadora = {
 }
 console.log(JSON.stringify(objetoCalculadora))
 
-
-
 // estruturas
 
 // seleção
