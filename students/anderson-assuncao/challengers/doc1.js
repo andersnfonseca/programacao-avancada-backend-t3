@@ -3,4 +3,4 @@ export function retornarVariavel() {
     let soma = variavel + 5
     return soma
 }
-console.log('doc1' + '\n' + retornarVariavel())
+console.log('doc1' + '\n' + retornarVariavel()) 
