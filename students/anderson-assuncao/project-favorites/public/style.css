@@ -5,15 +5,17 @@
 }
 
 body {
+
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    /* justify-content: flex-start; */
+    justify-content: flex-start;
 }
 
 header {
     text-align: center;
     padding: 10px;
+
 }
 
 li button {
@@ -63,9 +65,7 @@ footer {
 
 /* tablet css */
 @media (min-width: 768px) {
-    * {
-        font-size: 1.2rem;
-    }
+    
     header {
         display: flex;
         flex-direction: row;
